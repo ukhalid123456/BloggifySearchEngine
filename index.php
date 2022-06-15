@@ -36,23 +36,19 @@ require("connectdb.php");
                     $query = "SELECT * FROM blogs";
                     $result = $db->query($query);
                     ?>
-                    <table border="1" cellpadding="10" cellspacing="0">
                     <?php
                     $sn=1;
                     
                     while($data = $result->fetch(PDO::FETCH_ASSOC)) {
-                    
                     ?>
-                        
-                        <tr>
-                        <td><a href="displaycv.php?id=<?php echo $data['id']?>"><?php echo $data['title']; ?></a> </td>
-                        <td><?php echo '<img src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?> </td>
-                        <td><?php echo $data['information']; ?> </td>
-                        </tr>
+                        <div class="blogContainer">
+                            <?php echo '<img style="width: 500px; height:1=500px" src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?>
+                            <?php echo $data['information']; ?>
+                            <h1><?php echo $data['title']; ?></h1>
+                        </div>
                         <?php
                     }
                     ?>
-                    </table>
                     <?php
                     } catch(PDOException $e) {
                     echo "Error: " . $e->getMessage();
