@@ -1,5 +1,5 @@
 <?php
-require("connectdb.php");
+    require("connectdb.php");
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +30,7 @@ require("connectdb.php");
             </div>
 
             <div class="posts-container">
-                <?php 
+                <?php   
 		            try {
 
                     $query = "SELECT * FROM blogs";
@@ -41,11 +41,12 @@ require("connectdb.php");
                     
                     while($data = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
-                        <div class="blogContainer">
-                            <?php echo '<img style="width: 500px; height:1=500px" src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?>
+                        <a href="displayBlog.php?id=<?php echo $data['pageID']?>"><div class="blogContainer">
+                        <?php echo '<img style="width: 500px; height:1=500px" src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?>
                             <?php echo $data['information']; ?>
                             <h1><?php echo $data['title']; ?></h1>
                         </div>
+                        </a>
                         <?php
                     }
                     ?>
