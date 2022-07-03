@@ -19,7 +19,7 @@
         <div class="main-container">
 
             <div class="nav">
-                <a class="home" href="index.html">Bloggify.</a>
+                <a class="home" href="index.php">Bloggify.</a>
                 <div class="nav-right">
                     <a id="contactButton" href="#" onclick="contactFunction(); return false;">Contact</a>
                 </div>
@@ -42,8 +42,7 @@
                     while($data = $result->fetch(PDO::FETCH_ASSOC)) {
                     ?>
                         <a href="displayBlog.php?id=<?php echo $data['pageID']?>"><div class="blogContainer">
-                        <?php echo '<img style="width: 500px; height:1=500px" src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?>
-                            <?php echo $data['information']; ?>
+                        <?php echo '<img width="400" height="300" src="data:image/jpeg;base64,'.base64_encode( $data['thumbnail'] ). '"/>'; ?>
                             <h1><?php echo $data['title']; ?></h1>
                         </div>
                         </a>
